@@ -1,0 +1,22 @@
+img {
+  height: 10vh;
+  width: 7v;
+  border: 2px solid black;
+  z-index: 1000;
+}
+
+video {
+  height: 20vh;
+  width: 20vh;
+  border: none;
+}
+
+.skill {
+  background-color: black;
+  padding: 1vh;
+  margin: 1vh;
+  border: 1px solid white;
+}
+div {
+  text-align: center;
+}
