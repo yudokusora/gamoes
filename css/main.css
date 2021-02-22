@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+  color: white;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.foot {
+  padding-left: 15px;
+  display: inline-block;
+}
+
+.alargador {
+  padding: 10vh;
+}
+
+/* Pruebas Nav */
+.nav {
+  position: absolute;
+  width: 200px;
+  height: 100vh;
+  top: 0;
+  left: -220px; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos sobre la hamburguesa*/
+  padding-top: 47px;
+  background-color: rgb(29, 31, 33);
+  border-right: 4px solid rgb(17, 30, 146);
+  transition: all 0.5s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
+}
+
+.nav__item {
+  display: block;
+  width: 96%;
+  margin: 0 auto;
+  line-height: 2;
+  position: relative; /*Le damos una posición relativa para posteriormente añadirle el triangulo que indica que se está en la página actual del menú*/
+  border-bottom: 0.5px solid rgba(59, 62, 61, 1);
+  border-top: 0.5px solid rgba(59, 62, 61, 1);
+  background-color: transparent;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  color: rgba(221, 231, 228, 1);
+}
+
+.current:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute; /*Le damos al before una posición absoluta relativa al li que lo contiene*/
+  border-top: 17px solid transparent;
+  border-left: 15px solid #1d2120;
+  border-bottom: 17px solid transparent;
+  top: 0px;
+  right: -15px; /*Lo posicionamos -15px a la derecha de su contenedor*/
+  z-index: 4; /*le otorgamos un z-index alto para que se posicione arriba de otros elementeos*/
+}
+
+.current:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute; /*Le damos al after una posición absoluta relativa al li que lo contiene*/
+  border-top: 16.5px solid transparent;
+  border-left: 17px solid rgb(17, 30, 146);
+  border-bottom: 17px solid transparent;
+  top: 0.5px;
+  right: -21px;
+  z-index: 1; /*le otorgamos un z-index bajo para que se posicione debajo del trinagulo negro*/
+}
+
+.menu-toogle {
+  position: absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+  width: 35px;
+  line-height: 1.1;
+  text-align: center;
+  top: 6.5px; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+  left: 8px;
+  border-radius: 3px;
+  background-color: rgb(13, 18, 63);
+  transition: all 0.5s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+  z-index: 10;
+}
+
+.menu-toogle:before {
+  content: "☰";
+  font-size: 32px;
+  color: white;
+  position: fixed;
+  background-color: rgb(31, 38, 100);
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(29, 31, 33);
+  color: white;
+  text-align: center;
+
+  border-top: 4px solid rgb(17, 30, 146);
+}
+.checkbox {
+  display: none; /*Ocultamos el checkbox pues no nos interesa que se vea*/
+}
+
+.checkbox:checked ~ .nav {
+  left: 0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+  position: fixed; /* Fijamos el menú lateral para que se desplace cuando hagamos scroll*/
+}
+.checkbox:checked ~ .menu-toogle {
+  left: 208px;
+  position: fixed; /*Fijamos la hamburgues para que se desplace junto con el menú*/
+}
+
+/*pruebasNav*/
+
+body {
+  background-image: url("../img/anivia.png");
+  background-color: black;
+}
+
+.brillp {
+  margin: 5%;
+  padding: 2%;
+  box-shadow: 1px 1px 7px white;
+  background-color: black;
+}
+
+/* Mobile First --> Default columns */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .col-sm-1 {
+    width: 8.33%;
+  }
+  .col-sm-2 {
+    width: 16.66%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33%;
+  }
+  .col-sm-5 {
+    width: 41.66%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.33%;
+  }
+  .col-sm-8 {
+    width: 66.66%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33%;
+  }
+  .col-sm-11 {
+    width: 91.66%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+/* REMOVE THIS, USE YOUR OWN  */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .prueba {
+    display: flex;
+    justify-content: space-around !important;
+  }
+}
+.col-md-1 {
+  width: 8.33%;
+}
+.col-md-2 {
+  width: 16.66%;
+}
+.col-md-3 {
+  width: 25%;
+}
+.col-md-4 {
+  width: 33.33%;
+}
+.col-md-5 {
+  width: 41.66%;
+}
+.col-md-6 {
+  width: 50%;
+}
+.col-md-7 {
+  width: 58.33%;
+}
+.col-md-8 {
+  width: 66.66%;
+}
+.col-md-9 {
+  width: 75%;
+}
+.col-md-10 {
+  width: 83.33%;
+}
+.col-md-11 {
+  width: 91.66%;
+}
+.col-md-12 {
+  width: 100%;
+}
+aside,
+main {
+  height: 70vh;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .col-lg-1 {
+    width: 8.33%;
+  }
+  .col-lg-2 {
+    width: 16.66%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .col-lg-5 {
+    width: 41.66%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .col-lg-8 {
+    width: 66.66%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33%;
+  }
+  .col-lg-11 {
+    width: 91.66%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+  .col-xl-1 {
+    width: 8.33%;
+  }
+  .col-xl-2 {
+    width: 16.66%;
+  }
+  .col-xl-3 {
+    width: 25%;
+  }
+  .col-xl-4 {
+    width: 33.33%;
+  }
+  .col-xl-5 {
+    width: 41.66%;
+  }
+  .col-xl-6 {
+    width: 50%;
+  }
+  .col-xl-7 {
+    width: 58.33%;
+  }
+  .col-xl-8 {
+    width: 66.66%;
+  }
+  .col-xl-9 {
+    width: 75%;
+  }
+  .col-xl-10 {
+    width: 83.33%;
+  }
+  .col-xl-11 {
+    width: 91.66%;
+  }
+  .col-xl-12 {
+    width: 100%;
+  }
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
